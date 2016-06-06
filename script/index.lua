@@ -100,7 +100,7 @@ function main()
     Screen.debugPrint(20,curPos, ">", white, TOP_SCREEN)
     Screen.debugPrint(30,20, "Download latest .bin", white, TOP_SCREEN)
     Screen.debugPrint(30,35, "Back to Homemenu", white, TOP_SCREEN)
-    Screen.debugPrint(30,200, "v1.2", white, TOP_SCREEN)
+    Screen.debugPrint(30,200, "v1.2.1", white, TOP_SCREEN)
     Screen.debugPrint(30,215, "by MatMaf", white, TOP_SCREEN)
     if usersize == size then
         Screen.debugPrint(5,20, "encTitleKeys.bin is up to date.", green, BOTTOM_SCREEN)
