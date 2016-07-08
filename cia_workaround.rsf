@@ -1,12 +1,12 @@
 BasicInfo:
-  Title                   : "Luma3DS updater"
+  Title                   : "freeShop Launcher"
   CompanyCode             : "00"
   ProductCode             : "CTR-HB-LUMA"
   ContentType             : Application
   Logo                    : Nintendo # Nintendo / Licensed / Distributed / iQue / iQueForSystem
 
 TitleInfo:
-  UniqueId                : 0x6862
+  UniqueId                : 0xA543
   Category                : Application
   
 CardInfo:
@@ -30,7 +30,7 @@ AccessControlInfo:
 
 SystemControlInfo:
   SaveDataSize: 128KB
-  RemasterVersion: 0
+  RemasterVersion: 1
   StackSize: 0x40000
   
 # DO NOT EDIT BELOW HERE OR PROGRAMS WILL NOT LAUNCH (most likely)
