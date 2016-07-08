@@ -38,24 +38,15 @@ function update()
         Screen.debugPrint(5,50, "Cleaning up...", green, TOP_SCREEN)
         System.deleteFile("/f4g5h6.zip")
         Screen.debugPrint(5,65, "Done!", green, TOP_SCREEN)
-        Screen.debugPrint(5,95, "Press A to launch freeShop", green, TOP_SCREEN)
-        Screen.debugPrint(5,110, "Press B to go back to Homemenu", green, TOP_SCREEN)
         while true do
-            pad = Controls.read()
-            if Controls.check(pad,KEY_B) then
-                Screen.waitVblankStart()
-                Screen.flip()
-                System.exit()
-            elseif Controls.check(pad,KEY_A) then
-                Screen.waitVblankStart()
-                Screen.flip()
-                System.launchCIA(0x0f12ee00,SDMC)
-            end
+          Screen.waitVblankStart()
+          Screen.flip()
+          System.launchCIA(0x0f12ee00,SDMC)
         end
 
     else
         Screen.debugPrint(5,5, "Wi-Fi is disabled. Restart and try again.", red, TOP_SCREEN)
-        Screen.debugPrint(5,20, "Press A to go back to Homemenu", red, TOP_SCREEN)
+        Screen.debugPrint(5,20, "Press A to go back to Home Menu", red, TOP_SCREEN)
         while true do
             pad = Controls.read()
             if Controls.check(pad,KEY_A) then
@@ -81,7 +72,7 @@ function init()
         end
     else
         Screen.debugPrint(5,5, "Wi-Fi is disabled. Restart and try again.", red, TOP_SCREEN)
-        Screen.debugPrint(5,20, "Press A to go back to Homemenu", red, TOP_SCREEN)
+        Screen.debugPrint(5,20, "Press A to go back to Home Menu", red, TOP_SCREEN)
         Screen.waitVblankStart()
         Screen.flip()
         while true do
@@ -96,12 +87,9 @@ end
 function main()
     Screen.refresh()
     Screen.clear(TOP_SCREEN)
-    Screen.debugPrint(5,5, "encTitleKeysUpdater for freeShop", yellow, TOP_SCREEN)
-    Screen.debugPrint(20,curPos, ">", white, TOP_SCREEN)
-    Screen.debugPrint(30,20, "Download latest .bin", white, TOP_SCREEN)
-    Screen.debugPrint(30,35, "Back to Homemenu", white, TOP_SCREEN)
-    Screen.debugPrint(30,200, "v1.2.1", white, TOP_SCREEN)
-    Screen.debugPrint(30,215, "by MatMaf", white, TOP_SCREEN)
+    Screen.debugPrint(5,5, "encTitleKeysUpdater-Launcher for freeShop", yellow, TOP_SCREEN)
+    Screen.debugPrint(30,200, "Based on v1.2.1", white, TOP_SCREEN)
+    Screen.debugPrint(30,215, "Forked from MatMaf", white, TOP_SCREEN)
     if usersize == size then
         Screen.debugPrint(5,20, "encTitleKeys.bin is up to date.", green, BOTTOM_SCREEN)
     else
@@ -111,25 +99,7 @@ function main()
     Screen.flip()
 
     while true do
-        pad = Controls.read()
-        if Controls.check(pad,KEY_DDOWN) and not Controls.check(oldpad,KEY_DDOWN) then
-            if (curPos < 35) then
-                curPos = curPos + 15
-                main()
-            end
-        elseif Controls.check(pad,KEY_DUP) and not Controls.check(oldpad,KEY_DUP) then
-            if (curPos > 20) then
-                curPos = curPos - 15
-                main()
-            end
-        elseif Controls.check(pad,KEY_A) and not Controls.check(oldpad,KEY_A) then
-            if (curPos == 20) then
-                update()
-            elseif (curPos == 35) then
-                System.exit()
-            end
-        end
-        oldpad = pad
+      update()
     end
 end
 
