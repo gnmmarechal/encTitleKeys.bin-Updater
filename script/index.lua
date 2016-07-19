@@ -27,17 +27,17 @@ function update()
         System.deleteFile("/f4g5h6.zip")
         end
         System.createDirectory("/freeShop")
-        Network.downloadFile("http://matmaf.github.io/encTitleKeys.bin-Updater/f4g5h6.zip", "/f4g5h6.zip")
-        Screen.debugPrint(5,20, "Extracting...", green, TOP_SCREEN)
-        System.extractFromZIP("/f4g5h6.zip", "a1s2d3.bin", "/a1s2d3.bin")
-        if System.doesFileExist("/a1s2d3.bin") then
-        System.deleteFile("/freeShop/encTitleKeys.bin")
+        Network.downloadFile("http://3ds.titlekeys.com/downloadenc", "/encTitleKeysTemp.bin")
+        if System.doesFileExist("/encTitleKeysTemp.bin") then
+        	if System.doesFileExist("/freeShop/encTitleKeys.bin") then
+        		System.deleteFile("/freeShop/encTitleKeys.bin")
         end
         Screen.debugPrint(5,35, "Renaming...", green, TOP_SCREEN)
-        System.renameFile("/a1s2d3.bin", "/freeShop/encTitleKeys.bin")
-        Screen.debugPrint(5,50, "Cleaning up...", green, TOP_SCREEN)
-        System.deleteFile("/f4g5h6.zip")
+        System.renameFile("/encTitleKeysTemp.bin", "/freeShop/encTitleKeys.bin")
         Screen.debugPrint(5,65, "Done!", green, TOP_SCREEN)
+
+
+
         while true do
           Screen.waitVblankStart()
           Screen.flip()
