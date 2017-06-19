@@ -27,13 +27,13 @@ function update()
         System.deleteFile("/f4g5h6.zip")
         end
         System.createDirectory("/freeShop")
-        Network.downloadFile("http://3ds.titlekeys.com/downloadenc", "/encTitleKeysTemp.bin")
+        Network.downloadFile("http://3ds.titlekeys.gq/downloadenc", "/encTitleKeysTemp.bin")
         if System.doesFileExist("/encTitleKeysTemp.bin") then
-        	if System.doesFileExist("/freeShop/encTitleKeys.bin") then
-        		System.deleteFile("/freeShop/encTitleKeys.bin")
+        	if System.doesFileExist("/3ds/data/freeShop/keys/encTitleKeys.bin") then
+        		System.deleteFile("/3ds/data/freeShop/keys/encTitleKeys.bin")
         end
         Screen.debugPrint(5,35, "Renaming...", green, TOP_SCREEN)
-        System.renameFile("/encTitleKeysTemp.bin", "/freeShop/encTitleKeys.bin")
+        System.renameFile("/encTitleKeysTemp.bin", "/3ds/data/freeShop/keys/encTitleKeys.bin")
         Screen.debugPrint(5,65, "Done!", green, TOP_SCREEN)
 
 
